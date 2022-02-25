@@ -1,0 +1,56 @@
+import random
+
+print("This is a game of Rock, Paper ,Scissors")
+print("First player to 3 wins!")
+player_score = 0
+robot_score = 0
+random_sign = {"Rock", "Paper", "Scissors"}
+
+while player_score != 3 or robot_score != 3:
+    if player_score == 3:
+        print("Player WON!!")
+        break
+    if robot_score == 3:
+        print("Robot WON!!")
+        break
+    player_sign = input("Pick Your Sign  Rock(R), Paper(P), Scissors(S): ")
+    robot_sign = random.choice(tuple(random_sign))
+    # IF BOTH SIGNS ARE THE SAME
+    if player_sign.upper() == "R" and robot_sign == "Rock":
+        print(f"Robot Chose Rock too\nSCORE: {player_score}/{robot_score}")
+    if player_sign.upper() == "P" and robot_sign == "Paper":
+        print(f"Robot Chose Paper too\nSCORE: {player_score}/{robot_score}")
+    if player_sign.upper() == "S" and robot_sign == "Scissors":
+        print(f"Robot Chose Scissors too\nSCORE: {player_score}/{robot_score}")
+    # IF PLAYER WINS
+    if player_sign.upper() == "R" and robot_sign == "Scissors":
+        player_score += 1
+        print(
+            f"Robot Chose Scissors. 1+ Point To The Player\nSCORE: {player_score}/{robot_score}"
+        )
+    if player_sign.upper() == "P" and robot_sign == "Rock":
+        player_score += 1
+        print(
+            f"Robot Chose Rock. 1+ Point To The Player\nSCORE: {player_score}/{robot_score}"
+        )
+    if player_sign.upper() == "S" and robot_sign == "Paper":
+        player_score += 1
+        print(
+            f"Robot Chose paper. 1+ Point To The Player\nSCORE: {player_score}/{robot_score}"
+        )
+    # IF PLAYER LOSES
+    if player_sign.upper() == "R" and robot_sign == "Paper":
+        robot_score += 1
+        print(
+            f"Robot Chose Paper. 1+ Point To The Robot\nSCORE: {player_score}/{robot_score}"
+        )
+    if player_sign.upper() == "P" and robot_sign == "Scissors":
+        robot_score += 1
+        print(
+            f"Robot Chose Scissors. 1+ Point To The Robot\nSCORE: {player_score}/{robot_score}"
+        )
+    if player_sign.upper() == "S" and robot_sign == "Rock":
+        robot_score += 1
+        print(
+            f"Robot Chose Rock. 1+ Point To The Robot\nSCORE: {player_score}/{robot_score}"
+        )
